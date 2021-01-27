@@ -1,0 +1,42 @@
+﻿<Window x:Class="AnnexLauncher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnnexLauncher"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" AllowsTransparency="True" Background="Transparent" WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="450" Width="800" MouseLeftButtonDown="MainWindow_OnMouseLeftButtonDown">
+    <Border CornerRadius="15" Background="White">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Title Control -->
+                <Border CornerRadius="0,15,0,15" Background="#F4F4F4" Margin="130,0,0,69" Grid.RowSpan="2">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Command="{Binding MinimizeCommand}" Style="{StaticResource MaterialDesignIconButton}" Foreground="#A990DD" Height="35" Width="35" Cursor="Hand">
+                            <Button.Content>
+                                <md:PackIcon Kind="WindowMinimize"></md:PackIcon>
+                            </Button.Content>
+                        </Button>
+                        <Button Command="{Binding CloseCommand}" Style="{StaticResource MaterialDesignIconButton}" Foreground="#A990DD" Height="35" Width="35">
+                            <Button.Content>
+                                <md:PackIcon Kind="Close"></md:PackIcon>
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
