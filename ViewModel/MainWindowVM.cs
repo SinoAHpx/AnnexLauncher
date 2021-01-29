@@ -20,7 +20,5 @@ namespace AnnexLauncher.ViewModel
                 WindowUtils.GetMainWindow().WindowState = WindowState.Minimized;
             }
         };
-
-
     }
 }

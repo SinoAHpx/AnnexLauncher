@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:AnnexLauncher"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:extensions="clr-namespace:AnnexLauncher.Utils.Extensions"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -11,6 +12,8 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="Langs/lang_zh_cn.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <extensions:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AnnexLauncher"
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:extensions="clr-namespace:AnnexLauncher.Utils.Extensions"
         mc:Ignorable="d" AllowsTransparency="True" Background="Transparent" WindowStyle="None" WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="450" Width="800" MouseLeftButtonDown="MainWindow_OnMouseLeftButtonDown">
     <Border CornerRadius="10">
@@ -61,10 +62,20 @@
 
                     <!-- Page control -->
                     <StackPanel Grid.Row="2">
-                        <Button Background="#F4F4F4" Height="40" Style="{StaticResource MaterialDesignFlatButton}"/>
-                        <Button Height="40" Style="{StaticResource MaterialDesignFlatButton}"/>
-                        <Button Height="40" Style="{StaticResource MaterialDesignFlatButton}"/>
-                        <Button Height="40" Style="{StaticResource MaterialDesignFlatButton}"/>
+                        <StackPanel.Resources>
+                            <Style TargetType="RadioButton" BasedOn="{StaticResource MaterialDesignFlatButton}">
+                                <Setter Property="Height" Value="40"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsChecked" Value="True">
+                                        <Setter Property="Background" Value="#F4F4F4"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Resources>
+                        <RadioButton Name="ButtonHome" IsChecked="True"/>
+                        <RadioButton Name="ButtonAccount"/>
+                        <RadioButton Name="ButtonSetting"/>
+                        <RadioButton Name="ButtonDownload"/>
                     </StackPanel>
 
                     <Grid Grid.Row="2" IsHitTestVisible="False">
@@ -92,15 +103,26 @@
                                 <Setter Property="FontSize" Value="15"/>
                                 <Setter Property="Margin" Value="5,0,0,0"/>
                             </Style>
-                            <Style TargetType="md:PackIcon" BasedOn="{StaticResource {x:Type md:PackIcon}}">
+                            <Style TargetType="md:PackIcon">
                                 <Setter Property="Foreground" Value="#A990DD"/>
                                 <Setter Property="HorizontalAlignment" Value="Center"/>
                                 <Setter Property="VerticalAlignment" Value="Center"/>
                                 <Setter Property="Height" Value="25"/>
                                 <Setter Property="Width" Value="25"/>
                             </Style>
+                            <Style TargetType="Border">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                                <Setter Property="Background" Value="#A990DD"/>
+                                <Setter Property="CornerRadius" Value="4"/>
+                                <Setter Property="Height" Value="8"/>
+                                <Setter Property="Width" Value="20"/>
+                            </Style>
                         </Grid.Resources>
-                        <Border HorizontalAlignment="Center" VerticalAlignment="Center" Background="#A990DD" CornerRadius="4" Height="8" Width="20"/>
+                        <Border Grid.Row="0" Visibility="{Binding IsChecked, ElementName=ButtonHome, Converter={StaticResource BoolToVisibilityConverter}}" />
+                        <Border Grid.Row="1" Visibility="{Binding IsChecked, ElementName=ButtonAccount, Converter={StaticResource BoolToVisibilityConverter}}" />
+                        <Border Grid.Row="2" Visibility="{Binding IsChecked, ElementName=ButtonSetting, Converter={StaticResource BoolToVisibilityConverter}}" />
+                        <Border Grid.Row="3" Visibility="{Binding IsChecked, ElementName=ButtonDownload, Converter={StaticResource BoolToVisibilityConverter}}" />
 
                         <md:PackIcon Grid.Row="0" Grid.Column="1" Kind="Home" />
                         <TextBlock Grid.Row="0" Grid.Column="2" Text="{DynamicResource PageControl_Home}"/>
