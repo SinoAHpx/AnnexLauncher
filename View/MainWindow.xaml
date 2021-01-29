@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:AnnexLauncher"
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:extensions="clr-namespace:AnnexLauncher.Utils.Extensions"
+        xmlns:view="clr-namespace:AnnexLauncher.View"
         mc:Ignorable="d" AllowsTransparency="True" Background="Transparent" WindowStyle="None" WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="450" Width="800" MouseLeftButtonDown="MainWindow_OnMouseLeftButtonDown">
     <Border CornerRadius="10">
-        <Border.BitmapEffect>
-            <DropShadowBitmapEffect Color="Black" Direction="320" 
-                                    ShadowDepth="10" Opacity=".5" Softness="9" />
-        </Border.BitmapEffect>
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" ShadowDepth="2"/>
+        </Border.Effect>
         <Border.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="C:\Users\ahpx\Downloads\319456.jpg"/>
         </Border.Background>
@@ -141,6 +141,9 @@
                 </Grid>
             </Border>
             
+            <md:Transitioner SelectedIndex="0">
+                <view:HomeView/>
+            </md:Transitioner>
         </Grid>
     </Border>
 </Window>
