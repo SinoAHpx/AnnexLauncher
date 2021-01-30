@@ -16,7 +16,7 @@
                 VerticalAlignment="Center" 
                 HorizontalAlignment="Left"
                 Margin="20,0,0,0"
-                Height="55" Width="200" Click="ButtonBase_OnClick"
+                Height="55" Width="200"
                 md:ButtonAssist.CornerRadius="5" HorizontalContentAlignment="Left"
                 md:RippleAssist.Feedback="#A990DD" Cursor="Hand">
             <Button.Resources>
@@ -24,35 +24,23 @@
             </Button.Resources>
             <StackPanel Width="140">
                 <StackPanel.Resources>
-                    <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignHeadline6TextBlock}">
                         <Setter Property="HorizontalAlignment" Value="Left"/>
                         <Setter Property="Foreground" Value="#A990DD"/>
                     </Style>
                 </StackPanel.Resources>
-                <TextBlock Text="启动" FontSize="18" FontWeight="Bold"/>
-                <TextBlock Text="Minecraft 1.8.9" FontSize="12"/>
+                <TextBlock Text="启动" FontWeight="Bold"/>
+                <TextBlock Text="Minecraft 1.8.9" FontSize="14"/>
             </StackPanel>
         </Button>
-
-        <md:PopupBox Grid.Row="1" Name="PopupBoxx"
-                     HorizontalAlignment="Left" 
-                     VerticalAlignment="Center" Visibility="Collapsed"
-                     Margin="180,0,0,0">
-            <md:PopupBox.PopupContent>
-                <ListBox>
-                    <ListBoxItem Content="Test"/>
-                    <ListBoxItem Content="Test"/>
-                    <ListBoxItem Content="Test"/>
-                    <ListBoxItem Content="Test"/>
-                </ListBox>
-            </md:PopupBox.PopupContent>
-        </md:PopupBox>
 
         <Button Grid.Row="1"
                 HorizontalAlignment="Left" 
                 VerticalAlignment="Center" Width="40"
                 Margin="170,0,0,0"
-                Style="{StaticResource MaterialDesignFlatButton}" Background="Transparent" Cursor="Hand">
+                Command="{x:Static md:DialogHost.OpenDialogCommand}"
+                Style="{StaticResource MaterialDesignFlatButton}" 
+                Background="Transparent" Cursor="Hand">
             <md:PackIcon Kind="MenuRight" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#A990DD" Width="30" Height="30"/>
         </Button>
     </Grid>

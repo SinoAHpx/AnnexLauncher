@@ -9,141 +9,159 @@
         xmlns:view="clr-namespace:AnnexLauncher.View"
         mc:Ignorable="d" AllowsTransparency="True" Background="Transparent" WindowStyle="None" WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="450" Width="800" MouseLeftButtonDown="MainWindow_OnMouseLeftButtonDown">
-    <Border CornerRadius="10">
+    <Border CornerRadius="10" Margin="10">
         <Border.Effect>
             <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" ShadowDepth="2"/>
         </Border.Effect>
         <Border.Background>
             <ImageBrush Stretch="UniformToFill" ImageSource="C:\Users\ahpx\Downloads\319456.jpg"/>
         </Border.Background>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="6*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
+        <md:DialogHost>
+            <md:DialogHost.DialogContent>
+                <view:VersionSelectorView/>
+            </md:DialogHost.DialogContent>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
 
-            <Border Background="White" Grid.Column="1" CornerRadius="10">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="2*"/>
-                        <RowDefinition Height="10*"/>
-                    </Grid.RowDefinitions>
-
-                    <!-- Title Control -->
-                    <Border CornerRadius="0,10,0,10" Background="#F4F4F4" Margin="130,0,0,69" Grid.RowSpan="2">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Button Command="{Binding MinimizeCommand}" Style="{StaticResource MaterialDesignIconButton}" Foreground="#A990DD" Height="35" Width="35" Cursor="Hand">
-                                <Button.Content>
-                                    <md:PackIcon Kind="WindowMinimize"></md:PackIcon>
-                                </Button.Content>
-                            </Button>
-                            <Button Command="{Binding CloseCommand}" Style="{StaticResource MaterialDesignIconButton}" Foreground="#A990DD" Height="35" Width="35">
-                                <Button.Content>
-                                    <md:PackIcon Kind="Close"></md:PackIcon>
-                                </Button.Content>
-                            </Button>
-                        </StackPanel>
-                    </Border>
-
-                    <!-- Title Text -->
-                    <StackPanel Grid.Row="1">
-                        <TextBlock FontWeight="Bold" 
-                               Margin="15,0,0,0" 
-                               Foreground="#A990DD" 
-                               FontSize="22 "
-                               Text="Annex"/>
-                        <TextBlock FontWeight="Bold" 
-                               Margin="15,-5,0,0" 
-                               Foreground="#A990DD" 
-                               FontSize="22"
-                               Text="Launcher"/>
-                    </StackPanel>
-
-                    <!-- Page control -->
-                    <StackPanel Grid.Row="2">
-                        <StackPanel.Resources>
-                            <Style TargetType="RadioButton" BasedOn="{StaticResource MaterialDesignFlatButton}">
-                                <Setter Property="Height" Value="40"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsChecked" Value="True">
-                                        <Setter Property="Background" Value="#F4F4F4"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </StackPanel.Resources>
-                        <RadioButton Name="ButtonHome" IsChecked="True"/>
-                        <RadioButton Name="ButtonAccount"/>
-                        <RadioButton Name="ButtonSetting"/>
-                        <RadioButton Name="ButtonDownload"/>
-                    </StackPanel>
-
-                    <Grid Grid.Row="2" IsHitTestVisible="False">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="5*"/>
-                        </Grid.ColumnDefinitions>
+                <Border Background="White" Grid.Column="1" CornerRadius="10">
+                    <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="40"/>
-                            <RowDefinition Height="40"/>
-                            <RowDefinition Height="40"/>
-                            <RowDefinition Height="40"/>
-                            <RowDefinition Height="40"/>
-                            <RowDefinition Height="40"/>
-                            <RowDefinition Height="40"/>
-                            <RowDefinition Height="40"/>
-                            <RowDefinition/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="10*"/>
                         </Grid.RowDefinitions>
-                        <Grid.Resources>
-                            <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
-                                <Setter Property="Foreground" Value="#A990DD"/>
-                                <Setter Property="HorizontalAlignment" Value="Left"/>
-                                <Setter Property="VerticalAlignment" Value="Center"/>
-                                <Setter Property="FontSize" Value="15"/>
-                                <Setter Property="Margin" Value="5,0,0,0"/>
-                            </Style>
-                            <Style TargetType="md:PackIcon">
-                                <Setter Property="Foreground" Value="#A990DD"/>
-                                <Setter Property="HorizontalAlignment" Value="Center"/>
-                                <Setter Property="VerticalAlignment" Value="Center"/>
-                                <Setter Property="Height" Value="25"/>
-                                <Setter Property="Width" Value="25"/>
-                            </Style>
-                            <Style TargetType="Border">
-                                <Setter Property="HorizontalAlignment" Value="Center"/>
-                                <Setter Property="VerticalAlignment" Value="Center"/>
-                                <Setter Property="Background" Value="#A990DD"/>
-                                <Setter Property="CornerRadius" Value="4"/>
-                                <Setter Property="Height" Value="8"/>
-                                <Setter Property="Width" Value="20"/>
-                            </Style>
-                        </Grid.Resources>
-                        <Border Grid.Row="0" Visibility="{Binding IsChecked, ElementName=ButtonHome, Converter={StaticResource BoolToVisibilityConverter}}" />
-                        <Border Grid.Row="1" Visibility="{Binding IsChecked, ElementName=ButtonAccount, Converter={StaticResource BoolToVisibilityConverter}}" />
-                        <Border Grid.Row="2" Visibility="{Binding IsChecked, ElementName=ButtonSetting, Converter={StaticResource BoolToVisibilityConverter}}" />
-                        <Border Grid.Row="3" Visibility="{Binding IsChecked, ElementName=ButtonDownload, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-                        <md:PackIcon Grid.Row="0" Grid.Column="1" Kind="Home" />
-                        <TextBlock Grid.Row="0" Grid.Column="2" Text="{DynamicResource PageControl_Home}"/>
+                        <!-- Title Control -->
+                        <Border CornerRadius="0,10,0,10" 
+                            Background="#F4F4F4"
+                            HorizontalAlignment="Right">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <StackPanel.Resources>
+                                    <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignIconButton}">
+                                        <Setter Property="Foreground" Value="#A990DD"/>
+                                        <Setter Property="Width" Value="33"/>
+                                        <Setter Property="Height" Value="33"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <Button Command="{Binding MinimizeCommand}">
+                                    <Button.Content>
+                                        <md:PackIcon Kind="WindowMinimize"></md:PackIcon>
+                                    </Button.Content>
+                                </Button>
+                                <Button Command="{Binding CloseCommand}">
+                                    <Button.Content>
+                                        <md:PackIcon Kind="Close"></md:PackIcon>
+                                    </Button.Content>
+                                </Button>
+                            </StackPanel>
+                        </Border>
 
-                        <md:PackIcon Grid.Row="1" Grid.Column="1" Kind="Account" />
-                        <TextBlock Grid.Row="1" Grid.Column="2" Text="{DynamicResource PageControl_Account}"/>
+                        <!-- Title Text -->
+                        <StackPanel Grid.Row="1">
+                            <TextBlock FontWeight="Bold" 
+                               Margin="15,0,0,0"
+                               Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                               Foreground="#A990DD" 
+                               Text="Annex"/>
+                            <TextBlock FontWeight="Bold" 
+                               Margin="15,-5,0,0" 
+                               Style="{StaticResource MaterialDesignHeadline5TextBlock}"
+                               Foreground="#A990DD" 
+                               Text="Launcher"/>
+                        </StackPanel>
 
-                        <md:PackIcon Grid.Row="2" Grid.Column="1" Kind="Settings" />
-                        <TextBlock Grid.Row="2" Grid.Column="2" Text="{DynamicResource PageControl_Setting}"/>
+                        <!-- Page control -->
+                        <StackPanel Grid.Row="2">
+                            <StackPanel.Resources>
+                                <Style TargetType="RadioButton" BasedOn="{StaticResource MaterialDesignFlatButton}">
+                                    <Setter Property="Height" Value="40"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Setter Property="Background" Value="#F4F4F4"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </StackPanel.Resources>
+                            <RadioButton Name="ButtonHome" IsChecked="True"/>
+                            <RadioButton Name="ButtonAccount"/>
+                            <RadioButton Name="ButtonSetting"/>
+                            <RadioButton Name="ButtonDownload"/>
+                        </StackPanel>
 
-                        <md:PackIcon Grid.Row="3" Grid.Column="1" Kind="Download" />
-                        <TextBlock Grid.Row="3" Grid.Column="2" Text="{DynamicResource PageControl_Download}"/>
+                        <Grid Grid.Row="2" IsHitTestVisible="False">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignBody1TextBlock}">
+                                    <Setter Property="Foreground" Value="#A990DD"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Margin" Value="5,0,0,0"/>
+                                </Style>
+                                <Style TargetType="md:PackIcon">
+                                    <Setter Property="Foreground" Value="#A990DD"/>
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Height" Value="25"/>
+                                    <Setter Property="Width" Value="25"/>
+                                </Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                    <Setter Property="Background" Value="#A990DD"/>
+                                    <Setter Property="CornerRadius" Value="4"/>
+                                    <Setter Property="Height" Value="8"/>
+                                    <Setter Property="Width" Value="20"/>
+                                </Style>
+                            </Grid.Resources>
+                            <Border Grid.Row="0" Visibility="{Binding IsChecked, ElementName=ButtonHome, Converter={StaticResource BoolToVisibilityConverter}}" />
+                            <Border Grid.Row="1" Visibility="{Binding IsChecked, ElementName=ButtonAccount, Converter={StaticResource BoolToVisibilityConverter}}" />
+                            <Border Grid.Row="2" Visibility="{Binding IsChecked, ElementName=ButtonSetting, Converter={StaticResource BoolToVisibilityConverter}}" />
+                            <Border Grid.Row="3" Visibility="{Binding IsChecked, ElementName=ButtonDownload, Converter={StaticResource BoolToVisibilityConverter}}" />
 
-                        <TextBlock Foreground="LightGray" Grid.Row="8" Grid.ColumnSpan="3" Text="Annex Launcher beta" VerticalAlignment="Top" HorizontalAlignment="Center"></TextBlock>
+                            <md:PackIcon Grid.Row="0" Grid.Column="1" Kind="Home" />
+                            <TextBlock Grid.Row="0" Grid.Column="2" Text="{DynamicResource PageControl_Home}"/>
+
+                            <md:PackIcon Grid.Row="1" Grid.Column="1" Kind="Account" />
+                            <TextBlock Grid.Row="1" Grid.Column="2" Text="{DynamicResource PageControl_Account}"/>
+
+                            <md:PackIcon Grid.Row="2" Grid.Column="1" Kind="Settings" />
+                            <TextBlock Grid.Row="2" Grid.Column="2" Text="{DynamicResource PageControl_Setting}"/>
+
+                            <md:PackIcon Grid.Row="3" Grid.Column="1" Kind="Download" />
+                            <TextBlock Grid.Row="3" Grid.Column="2" Text="{DynamicResource PageControl_Download}"/>
+
+                            <TextBlock Foreground="LightGray" 
+                                   Grid.Row="7" 
+                                   Grid.ColumnSpan="3" 
+                                   Text="Annex Launcher beta" 
+                                   VerticalAlignment="Bottom" 
+                                   HorizontalAlignment="Center"/>
+                        </Grid>
                     </Grid>
-                </Grid>
-            </Border>
-            
-            <md:Transitioner SelectedIndex="0">
-                <view:HomeView/>
-            </md:Transitioner>
-        </Grid>
+                </Border>
+
+                <md:Transitioner SelectedIndex="0">
+                    <view:HomeView/>
+                </md:Transitioner>
+            </Grid>
+        </md:DialogHost>
     </Border>
 </Window>

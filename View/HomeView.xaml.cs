@@ -37,10 +37,5 @@ namespace AnnexLauncher.View
 
             HomeTheme.SetTheme(theme);
         }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            PopupBoxx.IsPopupOpen = true;
-        }
     }
 }
