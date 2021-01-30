@@ -29,11 +29,15 @@
                                     <RowDefinition Height="6*"/>
                                     <RowDefinition Height="4*"/>
                                 </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" VerticalAlignment="Center" Text="{Binding VersionName}"/>
-                                <TextBlock Grid.Row="1" VerticalAlignment="Top" Text="{Binding VersionType}"/>
+                                <TextBlock Grid.Row="0" Style="{StaticResource MaterialDesignBody2TextBlock}" VerticalAlignment="Center" Text="{Binding VersionName}"/>
+                                <TextBlock Grid.Row="1" Foreground="LightGray" FontSize="12" VerticalAlignment="Top" Text="{Binding VersionType}"/>
                             </Grid>
 
-                            <RadioButton Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <RadioButton Grid.Column="2"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Center" Style="{StaticResource MaterialDesignRadioButton}"
+                                         Command="{x:Static md:DialogHost.CloseDialogCommand}">
+                            </RadioButton>
                         </Grid>
                     </md:Card>
                 </DataTemplate>
