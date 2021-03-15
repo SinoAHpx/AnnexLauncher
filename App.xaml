@@ -10,6 +10,9 @@
             <ResourceDictionary.MergedDictionaries>
                 <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignExtensions;component/Themes/Generic.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignExtensions;component/Themes/MaterialDesignLightTheme.xaml" />
+                <ResourceDictionary Source="Themes/MDGridListTemplate.xaml"/>
                 <ResourceDictionary Source="Langs/lang_zh_cn.xaml" />
             </ResourceDictionary.MergedDictionaries>
 

@@ -154,7 +154,7 @@
                                 </Style>
                             </StackPanel.Resources>
                             <RadioButton Tag="0" Name="ButtonHome" IsChecked="True"/>
-                            <RadioButton Tag="1" Name="ButtonAccount"/>
+                            <RadioButton Tag="1" Name="ButtonAccount" Cursor="Hand"/>
                             <RadioButton Tag="2" Name="ButtonSetting"/>
                             <RadioButton Tag="3" Name="ButtonDownload"/>
                         </StackPanel>

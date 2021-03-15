@@ -7,6 +7,7 @@
              xmlns:mdex="clr-namespace:MaterialDesignExtensions.Controls;assembly=MaterialDesignExtensions"
              mc:Ignorable="d"
              xmlns:h="http://helix-toolkit.org/wpf"
+             xmlns:model="clr-namespace:AnnexLauncher.Model"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -15,8 +16,8 @@
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
         <h:HelixViewport3D ShowViewCube="False" RotateGesture="{StaticResource MouseGesture}" IsMoveEnabled="False"
                            FixedRotationPoint="0,80,0" FixedRotationPointEnabled="True" ModelUpDirection="0,1,0" Margin="10,10,10,10">
@@ -477,5 +478,43 @@
                 <PerspectiveCamera x:Name="FrontOR6" LookDirection="0,0,-1" Position="0,100,200" UpDirection="0,1,0"/>
             </h:HelixViewport3D.Camera>
         </h:HelixViewport3D>
+
+        <ListBox Grid.Column="1" Style="{StaticResource MaterialDesignGridListEdit}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="180" Height="60">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="7*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="3*"/>
+                        </Grid.RowDefinitions>
+                        <Ellipse Grid.RowSpan="3" Height="50" Width="50">
+                            <Ellipse.Fill>
+                                <ImageBrush Stretch="UniformToFill" ImageSource="C:\Users\ahpx\Desktop\download.png"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+
+                        <TextBlock Text="{Binding AccountName}" Style="{StaticResource MaterialDesignBody1TextBlock}" Grid.Column="1"/>
+                        <TextBlock Text="{Binding AccountType}" Foreground="Gray" Grid.Column="1" Grid.Row="1"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
+            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
+            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
+            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
+            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
+            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
+            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
+            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
+            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
+            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
+            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
+            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
+        </ListBox>
     </Grid>
 </UserControl>

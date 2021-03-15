@@ -6,5 +6,9 @@ namespace AnnexLauncher.ViewModel
 {
     class AccountVM
     {
+        public AccountVM()
+        {
+            
+        }
     }
 }
