@@ -7,5 +7,7 @@
         public string AccountMail { get; set; }
         public string AccountAvatar { get; set; }
         public string AccountSkin { get; set; }
+        public string AccountUuid { get; set; }
+        public string AccountAccessToken { get; set; }
     }
 }

@@ -8,10 +8,12 @@
              mc:Ignorable="d"
              xmlns:h="http://helix-toolkit.org/wpf"
              xmlns:model="clr-namespace:AnnexLauncher.Model"
+             xmlns:extensions="clr-namespace:AnnexLauncher.Utils.Extensions"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <ResourceDictionary>
             <MouseGesture x:Key="MouseGesture" MouseAction="LeftClick"/>
+            <extensions:AccountToSkinConverter x:Key="AccountToSkinConverter"/>
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
@@ -28,7 +30,7 @@
                             <DiffuseMaterial.Brush>
                                 <VisualBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 1 1" AlignmentX="Left" AlignmentY="Top">
                                     <VisualBrush.Visual>
-                                        <Image Source="C:\Users\ahpx\Downloads\d3e517ddfa89d2e4.png" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.ClearTypeHint="Enabled"/>
+                                        <Image Source="{Binding ElementName=ListBox_Accounts, Path=SelectedItem, Converter={StaticResource AccountToSkinConverter}}" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.ClearTypeHint="Enabled"/>
                                     </VisualBrush.Visual>
                                 </VisualBrush>
                             </DiffuseMaterial.Brush>
@@ -479,7 +481,7 @@
             </h:HelixViewport3D.Camera>
         </h:HelixViewport3D>
 
-        <ListBox Grid.Column="1" Style="{StaticResource MaterialDesignGridListEdit}">
+        <ListBox ItemsSource="{Binding Accounts}" Name="ListBox_Accounts" Grid.Column="1" Style="{StaticResource MaterialDesignGridListEdit}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Width="180" Height="60">
@@ -498,23 +500,11 @@
                             </Ellipse.Fill>
                         </Ellipse>
 
-                        <TextBlock Text="{Binding AccountName}" Style="{StaticResource MaterialDesignBody1TextBlock}" Grid.Column="1"/>
+                        <TextBlock Text="{Binding AccountName}" ToolTip="{Binding AccountMail}" Style="{StaticResource MaterialDesignBody1TextBlock}" Grid.Column="1"/>
                         <TextBlock Text="{Binding AccountType}" Foreground="Gray" Grid.Column="1" Grid.Row="1"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
-            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
-            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
-            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
-            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
-            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
-            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
-            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
-            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
-            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
-            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
-            <model:AccountModel AccountAvatar="C:\Users\ahpx\Desktop\download.png" AccountName="AhpxChina" AccountType="Mojang"/>
         </ListBox>
     </Grid>
 </UserControl>
