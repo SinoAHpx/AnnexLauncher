@@ -21,8 +21,8 @@ namespace AnnexLauncher.ViewModel
                     AccountMail = "AHpx@yandex.com" + i,
                     AccountName = "A" + i + "H",
                     AccountSkin = i % 2 == 0
-                        ? @"C:\Users\ahpx\Downloads\d3e517ddfa89d2e4.png"
-                        : @"C:\Users\ahpx\Downloads\a4eaf5f46753cf75.png",
+                        ? @"pack://application:,,,/Assets/Skins/steve.png"
+                        : @"pack://application:,,,/Assets/Skins/alex.png",
                     AccountType = "Offline",
                     AccountUuid = Guid.NewGuid().ToString("N"),
                     AccountAccessToken = Guid.NewGuid().ToString("N")

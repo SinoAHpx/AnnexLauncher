@@ -15,9 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Assets\d3e517ddfa89d2e4.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Remove="Assets\Skins\alex.png" />
+    <Resource Include="Assets\Skins\alex.png" />
+    <None Remove="Assets\Skins\steve.png" />
+    <Resource Include="Assets\Skins\steve.png" />
   </ItemGroup>
 
 </Project>

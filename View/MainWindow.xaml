@@ -83,10 +83,12 @@
         <Border.Effect>
             <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" ShadowDepth="2"/>
         </Border.Effect>
-        <md:DialogHost DialogClosing="DialogHost_DialogClosing">
-            <md:DialogHost.DialogContent>
-                <view:VersionSelectorView/>
-            </md:DialogHost.DialogContent>
+        <md:DialogHost Name="MainDialogHost" DialogClosing="DialogHost_DialogClosing">
+            <md:DialogHost.Style>
+                <Style TargetType="md:DialogHost" BasedOn="{StaticResource {x:Type md:DialogHost}}">
+
+                </Style>
+            </md:DialogHost.Style>
             <Grid>
                 
                 <Grid.ColumnDefinitions>

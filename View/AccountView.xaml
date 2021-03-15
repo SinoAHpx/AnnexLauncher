@@ -482,6 +482,13 @@
         </h:HelixViewport3D>
 
         <ListBox ItemsSource="{Binding Accounts}" Name="ListBox_Accounts" Grid.Column="1" Style="{StaticResource MaterialDesignGridListEdit}">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="添加一个账号"/>
+                    <MenuItem Header="删除选择的账号"/>
+                    <MenuItem Header="删除所有的账号"/>
+                </ContextMenu>
+            </ListBox.ContextMenu>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Width="180" Height="60">
@@ -496,7 +503,7 @@
                         </Grid.RowDefinitions>
                         <Ellipse Grid.RowSpan="3" Height="50" Width="50">
                             <Ellipse.Fill>
-                                <ImageBrush Stretch="UniformToFill" ImageSource="C:\Users\ahpx\Desktop\download.png"/>
+                                <ImageBrush Stretch="UniformToFill" ImageSource="{Binding AccountAvatar}"/>
                             </Ellipse.Fill>
                         </Ellipse>
 
