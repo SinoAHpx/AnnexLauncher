@@ -14,9 +14,9 @@
             <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" ShadowDepth="2"/>
         </Border.Effect>
         <Border.Background>
-            <ImageBrush Stretch="UniformToFill" ImageSource="C:\Users\ahpx\Downloads\319456.jpg"/>
+            <ImageBrush Stretch="UniformToFill" ImageSource="C:\Users\ahpx\Downloads\321241.jpg"/>
         </Border.Background>
-        <md:DialogHost>
+        <md:DialogHost DialogClosing="DialogHost_DialogClosing">
             <md:DialogHost.DialogContent>
                 <view:VersionSelectorView/>
             </md:DialogHost.DialogContent>
@@ -159,7 +159,7 @@
                 </Border>
 
                 <md:Transitioner SelectedIndex="0">
-                    <view:HomeView/>
+                    <view:HomeView x:Name="MainHomeView"/>
                 </md:Transitioner>
             </Grid>
         </md:DialogHost>

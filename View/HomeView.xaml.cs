@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AnnexLauncher.ViewModel;
 using MaterialDesignColors;
 using MaterialDesignColors.ColorManipulation;
 using MaterialDesignThemes.Wpf;
@@ -24,6 +25,8 @@ namespace AnnexLauncher.View
         public HomeView()
         {
             InitializeComponent();
+
+            DataContext = new HomeViewVM();
         }
 
         private void HomeView_OnLoaded(object sender, RoutedEventArgs e)

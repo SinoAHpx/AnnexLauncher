@@ -30,7 +30,7 @@
                     </Style>
                 </StackPanel.Resources>
                 <TextBlock Text="启动" FontWeight="Bold"/>
-                <TextBlock Text="Minecraft 1.8.9" FontSize="14"/>
+                <TextBlock x:Name="TextBlock_SelectedVersionName" Text="{Binding SelectedVersionName}" FontSize="14"/>
             </StackPanel>
         </Button>
 

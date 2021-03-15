@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using AnnexLauncher.View;
+using System.Windows;
 
 namespace AnnexLauncher.Utils
 {
@@ -7,6 +8,11 @@ namespace AnnexLauncher.Utils
         public static MainWindow GetMainWindow()
         {
             return Application.Current.MainWindow as MainWindow;
+        }
+
+        public static HomeView GetHomeView()
+        {
+            return GetMainWindow().MainHomeView;
         }
     }
 }

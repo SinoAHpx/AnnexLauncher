@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AnnexLauncher.Utils;
 using AnnexLauncher.ViewModel;
 
 namespace AnnexLauncher
@@ -34,6 +35,11 @@ namespace AnnexLauncher
         private void MainWindow_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        private void DialogHost_DialogClosing(object sender, MaterialDesignThemes.Wpf.DialogClosingEventArgs eventArgs)
+        {
+            WindowUtils.GetHomeView().TextBlock_SelectedVersionName.Text = eventArgs.Parameter.ToString();
         }
     }
 }
