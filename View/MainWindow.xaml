@@ -7,20 +7,88 @@
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:extensions="clr-namespace:AnnexLauncher.Utils.Extensions"
         xmlns:view="clr-namespace:AnnexLauncher.View"
+        xmlns:h="http://helix-toolkit.org/wpf"
         mc:Ignorable="d" AllowsTransparency="True" Background="Transparent" WindowStyle="None" WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="450" Width="800" MouseLeftButtonDown="MainWindow_OnMouseLeftButtonDown">
-    <Border CornerRadius="10" Margin="10">
+    <Border CornerRadius="10" Margin="10" Name="MainBorder">
+        <Border.Resources>
+            <Style TargetType="Border">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <VisualBrush Stretch="UniformToFill">
+                            <VisualBrush.Visual>
+                                <Image Source="C:\Users\ahpx\Downloads\321241.jpg"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding IsChecked, ElementName=ButtonAccount}" Value="True">
+                        <Setter Property="Background">
+                            <Setter.Value>
+                                <VisualBrush Stretch="UniformToFill">
+                                    <VisualBrush.Visual>
+                                        <Grid>
+                                            <Image Source="C:\Users\ahpx\Downloads\321241.jpg"/>
+                                            <Rectangle>
+                                                <Rectangle.Fill>
+                                                    <SolidColorBrush Color="White" Opacity="0.8"/>
+                                                </Rectangle.Fill>
+                                            </Rectangle>
+                                        </Grid>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding IsChecked, ElementName=ButtonSetting}" Value="True">
+                        <Setter Property="Background">
+                            <Setter.Value>
+                                <VisualBrush Stretch="UniformToFill">
+                                    <VisualBrush.Visual>
+                                        <Grid>
+                                            <Image Source="C:\Users\ahpx\Downloads\321241.jpg"/>
+                                            <Rectangle>
+                                                <Rectangle.Fill>
+                                                    <SolidColorBrush Color="White" Opacity="0.8"/>
+                                                </Rectangle.Fill>
+                                            </Rectangle>
+                                        </Grid>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding IsChecked, ElementName=ButtonDownload}" Value="True">
+                        <Setter Property="Background">
+                            <Setter.Value>
+                                <VisualBrush Stretch="UniformToFill">
+                                    <VisualBrush.Visual>
+                                        <Grid>
+                                            <Image Source="C:\Users\ahpx\Downloads\321241.jpg"/>
+                                            <Rectangle>
+                                                <Rectangle.Fill>
+                                                    <SolidColorBrush Color="White" Opacity="0.8"/>
+                                                </Rectangle.Fill>
+                                            </Rectangle>
+                                        </Grid>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Resources>
         <Border.Effect>
             <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" ShadowDepth="2"/>
         </Border.Effect>
-        <Border.Background>
-            <ImageBrush Stretch="UniformToFill" ImageSource="C:\Users\ahpx\Downloads\321241.jpg"/>
-        </Border.Background>
         <md:DialogHost DialogClosing="DialogHost_DialogClosing">
             <md:DialogHost.DialogContent>
                 <view:VersionSelectorView/>
             </md:DialogHost.DialogContent>
             <Grid>
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="6*"/>
                     <ColumnDefinition Width="2*"/>
@@ -85,10 +153,10 @@
                                     </Style.Triggers>
                                 </Style>
                             </StackPanel.Resources>
-                            <RadioButton Name="ButtonHome" IsChecked="True"/>
-                            <RadioButton Name="ButtonAccount"/>
-                            <RadioButton Name="ButtonSetting"/>
-                            <RadioButton Name="ButtonDownload"/>
+                            <RadioButton Tag="0" Name="ButtonHome" IsChecked="True"/>
+                            <RadioButton Tag="1" Name="ButtonAccount"/>
+                            <RadioButton Tag="2" Name="ButtonSetting"/>
+                            <RadioButton Tag="3" Name="ButtonDownload"/>
                         </StackPanel>
 
                         <Grid Grid.Row="2" IsHitTestVisible="False">
@@ -158,8 +226,27 @@
                     </Grid>
                 </Border>
 
-                <md:Transitioner SelectedIndex="0">
-                    <view:HomeView x:Name="MainHomeView"/>
+                <md:Transitioner Grid.Column="0" Name="MainTransitioner">
+                    <md:Transitioner.Resources>
+                        <Style TargetType="md:Transitioner" BasedOn="{StaticResource {x:Type md:Transitioner}}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsChecked, ElementName=ButtonHome}" Value="True">
+                                    <Setter Property="SelectedIndex" Value="0"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsChecked, ElementName=ButtonAccount}" Value="True">
+                                    <Setter Property="SelectedIndex" Value="1"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsChecked, ElementName=ButtonSetting}" Value="True">
+                                    <Setter Property="SelectedIndex" Value="2"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsChecked, ElementName=ButtonDownload}" Value="True">
+                                    <Setter Property="SelectedIndex" Value="3"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </md:Transitioner.Resources>
+                    <view:HomeView x:Name="MainHomeView" />
+                    <view:AccountView x:Name="MainAccountView" />
                 </md:Transitioner>
             </Grid>
         </md:DialogHost>

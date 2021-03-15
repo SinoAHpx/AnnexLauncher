@@ -7,13 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="HelixToolkit" Version="2.15.0" />
+    <PackageReference Include="HelixToolkit.Wpf" Version="2.15.0" />
     <PackageReference Include="MaterialDesignColors" Version="1.2.7" />
     <PackageReference Include="MaterialDesignExtensions" Version="3.2.0" />
     <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\" />
+    <None Update="Assets\d3e517ddfa89d2e4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
